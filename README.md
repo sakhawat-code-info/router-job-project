@@ -10,17 +10,7 @@ Currently, two official plugins are available:
 
 
 
-
-import PropTypes from 'prop-types';
-
-MyComponent.propTypes = {
-  myProp: PropTypes.bool
-};
-
-
-
-quick start
-
+---------------------------------------------------------
 
 githab project name 
 
@@ -50,13 +40,71 @@ env: { browser: true, es2020: true, node: true },
 
 npm run dev
 
+------------------------------------------------------------------------
+main.jsx
 
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import './index.css'
+import ErrorPage from './pages/ErrorPage';
+import Root from './LayOut/Root';
+
+
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <div>outlet body</div>,
+      },
+    ],
+  },
+]);
+
+
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>,
+)
+
+
+-----------------------------------------------------------------------------
+folder
+
+pages
+components
+utility
+
+
+
+Error.jsx
+
+-----------------------------------------------------------
 
 import PropTypes from 'prop-types';
 
 MyComponent.propTypes = {
   myProp: PropTypes.bool
 };
+
+
+
+
+
+
+
+
 
 
 
