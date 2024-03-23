@@ -7,8 +7,8 @@ import {
 import './index.css'
 import ErrorPage from './pages/ErrorPage';
 import Root from './LayOut/Root';
-
-
+import Home from './pages/Home';
+import AppliedJobs from './components/AppliedJobs';
 
 
 const router = createBrowserRouter([
@@ -19,8 +19,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <div>outlet body</div>,
+        element: <Home></Home>,
       },
+      {
+        path: "/appliedjobs",
+        element: <AppliedJobs></AppliedJobs>
+      }
     ],
   },
 ]);
